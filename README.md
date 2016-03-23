@@ -98,11 +98,9 @@ cond(no)->op
 
 > **Note:** You can find more information:
 
-> - about **Sequence diagrams** syntax [here][1],
-> - about **Flow charts** syntax [here][2].
+> - Readme creado [here][1],
 
 
 
-  [1]: http://math.stackexchange.com/
-  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"
 
+  [1]: https://stackedit.io/
