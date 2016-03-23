@@ -21,7 +21,7 @@ def loadXMLParameters():
     global DEBUG,PUERTO,ServerOn
 
     ruta=os.getcwd()
-    rutaFinal=str(ruta)+"/configs.xml"
+    rutaFinal=str(ruta)+"/src/configs.xml"
     xmlDocParametrosIni = minidom.parse(rutaFinal)
     ServerOn=True
 
@@ -46,14 +46,14 @@ def initServer():
 
     try:
         if(DEBUG == True):
-            print".",
+            print(".")#,
         Server.bind(('', PUERTO))
         Server.listen(5)
         if(DEBUG == True):
             print("\nServer initialized on the port: "+str(PUERTO))
         ServerOn=True
     except:
-        print".",
+        print(".")#,
         PUERTO+=1
         initServer()
 
