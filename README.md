@@ -9,10 +9,10 @@ El codigo encontrado en este repositorio implementa un pequeño **intérprete** 
 
 Creadores:
 -------------
-Abraham Arias Chinchilla
-David Monestel
-Fabian Solano
-Lenin Torres Valverde
+Abraham Arias Chinchilla.
+David Monestel.
+Fabian Solano.
+Lenin Torres Valverde.
 2016
 
 -------------
