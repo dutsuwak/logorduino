@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTcpSocket>
+#include <QtDebug>
 
 namespace Ui {class IBashCode;}
 
@@ -15,9 +16,12 @@ public:
     ~IBashCode();
     bool passConfigAndInit(QString pIp, int pPort);
 
-private slots:
+public slots:
     void on_Bsend_clicked();
     void on_Bexit_clicked();
+
+private slots:
+    void on_lineEditCode_returnPressed();
 
 private:
     Ui::IBashCode* ui;

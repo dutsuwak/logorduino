@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>588</width>
-    <height>485</height>
+    <width>585</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,13 +24,39 @@
      </rect>
     </property>
    </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>430</y>
+      <width>571</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_info">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>410</y>
+      <width>531</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ok</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>588</width>
+     <width>585</width>
      <height>21</height>
     </rect>
    </property>
@@ -44,6 +70,7 @@
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
     <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -51,6 +78,7 @@
     </property>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
+    <addaction name="actionCut"/>
     <addaction name="separator"/>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -62,9 +90,16 @@
     <addaction name="actionCheck"/>
     <addaction name="actionRun"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionInformation"/>
+   </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuEdit"/>
    <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -81,6 +116,10 @@
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="separator"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionCut"/>
+   <addaction name="separator"/>
    <addaction name="actionSave"/>
    <addaction name="actionSave_as"/>
    <addaction name="separator"/>
@@ -89,6 +128,8 @@
    <addaction name="separator"/>
    <addaction name="actionCheck"/>
    <addaction name="actionRun"/>
+   <addaction name="separator"/>
+   <addaction name="actionExit"/>
    <addaction name="separator"/>
   </widget>
   <action name="actionNew">
@@ -127,10 +168,10 @@
     <string>Copy</string>
    </property>
   </action>
-  <action name="actionPaste">
+  <action name="actionCut">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/Images/src/page_white_paste.png</normaloff>:/Images/src/page_white_paste.png</iconset>
+     <normaloff>:/Images/src/cut.png</normaloff>:/Images/src/cut.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -179,6 +220,29 @@
    </property>
    <property name="text">
     <string>Run</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/src/cancel.png</normaloff>:/Images/src/cancel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/src/page_white_paste.png</normaloff>:/Images/src/page_white_paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionInformation">
+   <property name="text">
+    <string>Information</string>
    </property>
   </action>
  </widget>

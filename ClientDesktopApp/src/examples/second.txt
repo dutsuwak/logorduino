@@ -1,0 +1,3 @@
+if(mFilename==""){
+        this->on_actionSave_as_triggered();
+    }
