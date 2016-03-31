@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>src/accept.png</file>
+        <file>src/arrow_redo.png</file>
+        <file>src/disk.png</file>
+        <file>src/favicon.ico</file>
+        <file>src/page_white.png</file>
+        <file>src/printer_add.png</file>
+        <file>src/world_link.png</file>
+    </qresource>
+</RCC>

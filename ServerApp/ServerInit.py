@@ -49,8 +49,9 @@ def initServer():
             print(".")#,
         Server.bind(('', PUERTO))
         Server.listen(5)
+        #s.connect(('google.com',0)) 
         if(DEBUG == True):
-            print("\nServer initialized on the port: "+str(PUERTO))
+            print("\nServer initialized on : "+str(socket.gethostbyname(socket.gethostname()))+":"+str(PUERTO))
         ServerOn=True
     except:
         print(".")#,

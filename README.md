@@ -9,10 +9,10 @@ El codigo encontrado en este repositorio implementa un pequeño **intérprete** 
 
 Creadores:
 -------------
-Abraham Arias Chinchilla
-David Monestel
-Fabian Solano
-Lenin Torres Valverde
+Abraham Arias Chinchilla. <br />
+David Monestel. <br />
+Fabian Solano.  <br />
+Lenin Torres Valverde. <br />
 2016
 
 -------------
@@ -98,11 +98,9 @@ cond(no)->op
 
 > **Note:** You can find more information:
 
-> - about **Sequence diagrams** syntax [here][1],
-> - about **Flow charts** syntax [here][2].
+> - Readme creado [here][1],
 
 
 
-  [1]: http://math.stackexchange.com/
-  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"
 
+  [1]: https://stackedit.io/
