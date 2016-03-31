@@ -4,6 +4,9 @@ import time
 from xml.dom import minidom
 from threading import Thread
 
+#from logorduino_parser import yacc
+import logorduino_parser
+# Get the token map from the lexer.  This is required.
 
 
 '''--------------------------------------------------------------------------
@@ -90,22 +93,26 @@ def handleClient(conn,addr):
         data = data.split('\n')
         try:
             if(data[0] != ""):
-
-                if(data[0] == "xexit"):
-                    if(DEBUG== True):
-                        print("**usuario: "+str(addr)+" desconectado**")
-                    SessionOn=False
-                elif(data[0]=="xkill"):
-                    ServerOn=False
-                else:
-                    print("comando desconocido: "+data[0]+".   de :"+str(addr[0]))
+                interpreter(data[0])
+       #         if(data[0] == "xexit"):
+        #            if(DEBUG== True):
+         #               print("**usuario: "+str(addr)+" desconectado**")
+          #          SessionOn=False
+           #     elif(data[0]=="xkill"):
+            #        ServerOn=False
+             #   else:
+              #      print("comando desconocido: "+data[0]+".   de :"+str(addr[0]))
         except:
             pass
 
     conn.close()
     #os._exit(0)
 
-
+def interpreter(command) :
+    print("ok1")
+    result = logorduino_parser.yacc.parse(command)
+    print("ok")
+    print (result)
 
 
 loadXMLParameters()

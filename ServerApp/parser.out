@@ -1,0 +1,1216 @@
+Created by PLY version 3.8 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMA
+    GD
+    DEQUAL
+    GI
+    LBLOCK
+    SI
+    LESS
+    DISTINT
+    GREATEREQUAL
+    RE
+    SEMICOLON
+    SUBELAPIZ
+    AV
+    GREATER
+    BAJALAPIZ
+    LESSEQUAL
+    EQUAL
+    RBLOCK
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> expression
+Rule 2     expression -> PARA ID DOUPOINT term expression FIN
+Rule 3     expression -> PARA ID expression FIN
+Rule 4     expression -> AVANZA DOUPOINT ID expression
+Rule 5     expression -> AVANZA term expression
+Rule 6     expression -> RETROCEDE term expression
+Rule 7     expression -> GIRADERECHA term expression
+Rule 8     expression -> GIRAIZQUIERDA term expression
+Rule 9     expression -> REPITE term LBRACKET expression RBRACKET
+Rule 10    expression -> PONPOS LBRACKET term term RBRACKET
+Rule 11    expression -> PONRUMBO MINUS term
+Rule 12    expression -> PONRUMBO term
+Rule 13    expression -> CENTRO
+Rule 14    expression -> <empty>
+Rule 15    expression -> expression PLUS term
+Rule 16    expression -> expression MINUS term
+Rule 17    term -> term TIMES factor
+Rule 18    term -> term DIVIDE factor
+Rule 19    term -> factor
+Rule 20    factor -> NUMBER
+Rule 21    factor -> ID
+Rule 22    factor -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+AV                   : 
+AVANZA               : 4 5
+BAJALAPIZ            : 
+CENTRO               : 13
+COMMA                : 
+DEQUAL               : 
+DISTINT              : 
+DIVIDE               : 18
+DOUPOINT             : 2 4
+EQUAL                : 
+FIN                  : 2 3
+GD                   : 
+GI                   : 
+GIRADERECHA          : 7
+GIRAIZQUIERDA        : 8
+GREATER              : 
+GREATEREQUAL         : 
+ID                   : 2 3 4 21
+LBLOCK               : 
+LBRACKET             : 9 10
+LESS                 : 
+LESSEQUAL            : 
+LPAREN               : 22
+MINUS                : 11 16
+NUMBER               : 20
+PARA                 : 2 3
+PLUS                 : 15
+PONPOS               : 10
+PONRUMBO             : 11 12
+RBLOCK               : 
+RBRACKET             : 9 10
+RE                   : 
+REPITE               : 9
+RETROCEDE            : 6
+RPAREN               : 22
+SEMICOLON            : 
+SI                   : 
+SUBELAPIZ            : 
+TIMES                : 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 3 4 5 6 7 8 9 15 16 22
+factor               : 17 18 19
+program              : 0
+term                 : 2 5 6 7 8 9 10 10 11 12 15 16 17 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . expression
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 2
+    program                        shift and go to state 7
+
+state 1
+
+    (9) expression -> REPITE . term LBRACKET expression RBRACKET
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 15
+    factor                         shift and go to state 13
+
+state 2
+
+    (1) program -> expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+    $end            reduce using rule 1 (program -> expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 3
+
+    (10) expression -> PONPOS . LBRACKET term term RBRACKET
+
+    LBRACKET        shift and go to state 19
+
+
+state 4
+
+    (6) expression -> RETROCEDE . term expression
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 20
+    factor                         shift and go to state 13
+
+state 5
+
+    (8) expression -> GIRAIZQUIERDA . term expression
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 21
+    factor                         shift and go to state 13
+
+state 6
+
+    (13) expression -> CENTRO .
+
+    RBRACKET        reduce using rule 13 (expression -> CENTRO .)
+    PLUS            reduce using rule 13 (expression -> CENTRO .)
+    MINUS           reduce using rule 13 (expression -> CENTRO .)
+    RPAREN          reduce using rule 13 (expression -> CENTRO .)
+    $end            reduce using rule 13 (expression -> CENTRO .)
+    FIN             reduce using rule 13 (expression -> CENTRO .)
+
+
+state 7
+
+    (0) S' -> program .
+
+
+
+state 8
+
+    (2) expression -> PARA . ID DOUPOINT term expression FIN
+    (3) expression -> PARA . ID expression FIN
+
+    ID              shift and go to state 22
+
+
+state 9
+
+    (11) expression -> PONRUMBO . MINUS term
+    (12) expression -> PONRUMBO . term
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 23
+    factor                         shift and go to state 13
+
+state 10
+
+    (4) expression -> AVANZA . DOUPOINT ID expression
+    (5) expression -> AVANZA . term expression
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    DOUPOINT        shift and go to state 25
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 26
+    factor                         shift and go to state 13
+
+state 11
+
+    (7) expression -> GIRADERECHA . term expression
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 27
+    factor                         shift and go to state 13
+
+state 12
+
+    (20) factor -> NUMBER .
+
+    RBRACKET        reduce using rule 20 (factor -> NUMBER .)
+    TIMES           reduce using rule 20 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 20 (factor -> NUMBER .)
+    PARA            reduce using rule 20 (factor -> NUMBER .)
+    AVANZA          reduce using rule 20 (factor -> NUMBER .)
+    RETROCEDE       reduce using rule 20 (factor -> NUMBER .)
+    GIRADERECHA     reduce using rule 20 (factor -> NUMBER .)
+    GIRAIZQUIERDA   reduce using rule 20 (factor -> NUMBER .)
+    REPITE          reduce using rule 20 (factor -> NUMBER .)
+    PONPOS          reduce using rule 20 (factor -> NUMBER .)
+    PONRUMBO        reduce using rule 20 (factor -> NUMBER .)
+    CENTRO          reduce using rule 20 (factor -> NUMBER .)
+    PLUS            reduce using rule 20 (factor -> NUMBER .)
+    MINUS           reduce using rule 20 (factor -> NUMBER .)
+    $end            reduce using rule 20 (factor -> NUMBER .)
+    RPAREN          reduce using rule 20 (factor -> NUMBER .)
+    FIN             reduce using rule 20 (factor -> NUMBER .)
+    LBRACKET        reduce using rule 20 (factor -> NUMBER .)
+    NUMBER          reduce using rule 20 (factor -> NUMBER .)
+    ID              reduce using rule 20 (factor -> NUMBER .)
+    LPAREN          reduce using rule 20 (factor -> NUMBER .)
+
+
+state 13
+
+    (19) term -> factor .
+
+    TIMES           reduce using rule 19 (term -> factor .)
+    DIVIDE          reduce using rule 19 (term -> factor .)
+    PLUS            reduce using rule 19 (term -> factor .)
+    MINUS           reduce using rule 19 (term -> factor .)
+    $end            reduce using rule 19 (term -> factor .)
+    RPAREN          reduce using rule 19 (term -> factor .)
+    FIN             reduce using rule 19 (term -> factor .)
+    RBRACKET        reduce using rule 19 (term -> factor .)
+    PARA            reduce using rule 19 (term -> factor .)
+    AVANZA          reduce using rule 19 (term -> factor .)
+    RETROCEDE       reduce using rule 19 (term -> factor .)
+    GIRADERECHA     reduce using rule 19 (term -> factor .)
+    GIRAIZQUIERDA   reduce using rule 19 (term -> factor .)
+    REPITE          reduce using rule 19 (term -> factor .)
+    PONPOS          reduce using rule 19 (term -> factor .)
+    PONRUMBO        reduce using rule 19 (term -> factor .)
+    CENTRO          reduce using rule 19 (term -> factor .)
+    NUMBER          reduce using rule 19 (term -> factor .)
+    ID              reduce using rule 19 (term -> factor .)
+    LPAREN          reduce using rule 19 (term -> factor .)
+    LBRACKET        reduce using rule 19 (term -> factor .)
+
+
+state 14
+
+    (22) factor -> LPAREN . expression RPAREN
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    RPAREN          reduce using rule 14 (expression -> .)
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 28
+
+state 15
+
+    (9) expression -> REPITE term . LBRACKET expression RBRACKET
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    LBRACKET        shift and go to state 31
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 16
+
+    (21) factor -> ID .
+
+    RBRACKET        reduce using rule 21 (factor -> ID .)
+    TIMES           reduce using rule 21 (factor -> ID .)
+    DIVIDE          reduce using rule 21 (factor -> ID .)
+    PARA            reduce using rule 21 (factor -> ID .)
+    AVANZA          reduce using rule 21 (factor -> ID .)
+    RETROCEDE       reduce using rule 21 (factor -> ID .)
+    GIRADERECHA     reduce using rule 21 (factor -> ID .)
+    GIRAIZQUIERDA   reduce using rule 21 (factor -> ID .)
+    REPITE          reduce using rule 21 (factor -> ID .)
+    PONPOS          reduce using rule 21 (factor -> ID .)
+    PONRUMBO        reduce using rule 21 (factor -> ID .)
+    CENTRO          reduce using rule 21 (factor -> ID .)
+    PLUS            reduce using rule 21 (factor -> ID .)
+    MINUS           reduce using rule 21 (factor -> ID .)
+    $end            reduce using rule 21 (factor -> ID .)
+    RPAREN          reduce using rule 21 (factor -> ID .)
+    FIN             reduce using rule 21 (factor -> ID .)
+    LBRACKET        reduce using rule 21 (factor -> ID .)
+    NUMBER          reduce using rule 21 (factor -> ID .)
+    ID              reduce using rule 21 (factor -> ID .)
+    LPAREN          reduce using rule 21 (factor -> ID .)
+
+
+state 17
+
+    (15) expression -> expression PLUS . term
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 32
+    factor                         shift and go to state 13
+
+state 18
+
+    (16) expression -> expression MINUS . term
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 33
+    factor                         shift and go to state 13
+
+state 19
+
+    (10) expression -> PONPOS LBRACKET . term term RBRACKET
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 34
+    factor                         shift and go to state 13
+
+state 20
+
+    (6) expression -> RETROCEDE term . expression
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+    RPAREN          reduce using rule 14 (expression -> .)
+    FIN             reduce using rule 14 (expression -> .)
+    RBRACKET        reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 35
+
+state 21
+
+    (8) expression -> GIRAIZQUIERDA term . expression
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+    RPAREN          reduce using rule 14 (expression -> .)
+    FIN             reduce using rule 14 (expression -> .)
+    RBRACKET        reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 36
+
+state 22
+
+    (2) expression -> PARA ID . DOUPOINT term expression FIN
+    (3) expression -> PARA ID . expression FIN
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    DOUPOINT        shift and go to state 38
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    FIN             reduce using rule 14 (expression -> .)
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 37
+
+state 23
+
+    (12) expression -> PONRUMBO term .
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    RBRACKET        reduce using rule 12 (expression -> PONRUMBO term .)
+    PLUS            reduce using rule 12 (expression -> PONRUMBO term .)
+    MINUS           reduce using rule 12 (expression -> PONRUMBO term .)
+    RPAREN          reduce using rule 12 (expression -> PONRUMBO term .)
+    $end            reduce using rule 12 (expression -> PONRUMBO term .)
+    FIN             reduce using rule 12 (expression -> PONRUMBO term .)
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 24
+
+    (11) expression -> PONRUMBO MINUS . term
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 39
+    factor                         shift and go to state 13
+
+state 25
+
+    (4) expression -> AVANZA DOUPOINT . ID expression
+
+    ID              shift and go to state 40
+
+
+state 26
+
+    (5) expression -> AVANZA term . expression
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+    RPAREN          reduce using rule 14 (expression -> .)
+    FIN             reduce using rule 14 (expression -> .)
+    RBRACKET        reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 41
+
+state 27
+
+    (7) expression -> GIRADERECHA term . expression
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+    RPAREN          reduce using rule 14 (expression -> .)
+    FIN             reduce using rule 14 (expression -> .)
+    RBRACKET        reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 42
+
+state 28
+
+    (22) factor -> LPAREN expression . RPAREN
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+    RPAREN          shift and go to state 43
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 29
+
+    (18) term -> term DIVIDE . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    factor                         shift and go to state 44
+
+state 30
+
+    (17) term -> term TIMES . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    factor                         shift and go to state 45
+
+state 31
+
+    (9) expression -> REPITE term LBRACKET . expression RBRACKET
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    RBRACKET        reduce using rule 14 (expression -> .)
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 46
+
+state 32
+
+    (15) expression -> expression PLUS term .
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    RBRACKET        reduce using rule 15 (expression -> expression PLUS term .)
+    PLUS            reduce using rule 15 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 15 (expression -> expression PLUS term .)
+    RPAREN          reduce using rule 15 (expression -> expression PLUS term .)
+    $end            reduce using rule 15 (expression -> expression PLUS term .)
+    FIN             reduce using rule 15 (expression -> expression PLUS term .)
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 33
+
+    (16) expression -> expression MINUS term .
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    RBRACKET        reduce using rule 16 (expression -> expression MINUS term .)
+    PLUS            reduce using rule 16 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 16 (expression -> expression MINUS term .)
+    RPAREN          reduce using rule 16 (expression -> expression MINUS term .)
+    $end            reduce using rule 16 (expression -> expression MINUS term .)
+    FIN             reduce using rule 16 (expression -> expression MINUS term .)
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 34
+
+    (10) expression -> PONPOS LBRACKET term . term RBRACKET
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 47
+    factor                         shift and go to state 13
+
+state 35
+
+    (6) expression -> RETROCEDE term expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    RBRACKET        reduce using rule 6 (expression -> RETROCEDE term expression .)
+    RPAREN          reduce using rule 6 (expression -> RETROCEDE term expression .)
+    $end            reduce using rule 6 (expression -> RETROCEDE term expression .)
+    FIN             reduce using rule 6 (expression -> RETROCEDE term expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 6 (expression -> RETROCEDE term expression .) ]
+  ! MINUS           [ reduce using rule 6 (expression -> RETROCEDE term expression .) ]
+
+
+state 36
+
+    (8) expression -> GIRAIZQUIERDA term expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    RBRACKET        reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .)
+    RPAREN          reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .)
+    $end            reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .)
+    FIN             reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .) ]
+  ! MINUS           [ reduce using rule 8 (expression -> GIRAIZQUIERDA term expression .) ]
+
+
+state 37
+
+    (3) expression -> PARA ID expression . FIN
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+    FIN             shift and go to state 48
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 38
+
+    (2) expression -> PARA ID DOUPOINT . term expression FIN
+    (17) term -> . term TIMES factor
+    (18) term -> . term DIVIDE factor
+    (19) term -> . factor
+    (20) factor -> . NUMBER
+    (21) factor -> . ID
+    (22) factor -> . LPAREN expression RPAREN
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 16
+    LPAREN          shift and go to state 14
+
+    term                           shift and go to state 49
+    factor                         shift and go to state 13
+
+state 39
+
+    (11) expression -> PONRUMBO MINUS term .
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    RBRACKET        reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    PLUS            reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    MINUS           reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    RPAREN          reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    $end            reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    FIN             reduce using rule 11 (expression -> PONRUMBO MINUS term .)
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 40
+
+    (4) expression -> AVANZA DOUPOINT ID . expression
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+    $end            reduce using rule 14 (expression -> .)
+    RPAREN          reduce using rule 14 (expression -> .)
+    FIN             reduce using rule 14 (expression -> .)
+    RBRACKET        reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 50
+
+state 41
+
+    (5) expression -> AVANZA term expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    RBRACKET        reduce using rule 5 (expression -> AVANZA term expression .)
+    RPAREN          reduce using rule 5 (expression -> AVANZA term expression .)
+    $end            reduce using rule 5 (expression -> AVANZA term expression .)
+    FIN             reduce using rule 5 (expression -> AVANZA term expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 5 (expression -> AVANZA term expression .) ]
+  ! MINUS           [ reduce using rule 5 (expression -> AVANZA term expression .) ]
+
+
+state 42
+
+    (7) expression -> GIRADERECHA term expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    RBRACKET        reduce using rule 7 (expression -> GIRADERECHA term expression .)
+    RPAREN          reduce using rule 7 (expression -> GIRADERECHA term expression .)
+    $end            reduce using rule 7 (expression -> GIRADERECHA term expression .)
+    FIN             reduce using rule 7 (expression -> GIRADERECHA term expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 7 (expression -> GIRADERECHA term expression .) ]
+  ! MINUS           [ reduce using rule 7 (expression -> GIRADERECHA term expression .) ]
+
+
+state 43
+
+    (22) factor -> LPAREN expression RPAREN .
+
+    RBRACKET        reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    PARA            reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    AVANZA          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    RETROCEDE       reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    GIRADERECHA     reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    GIRAIZQUIERDA   reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    REPITE          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    PONPOS          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    PONRUMBO        reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    CENTRO          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    $end            reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    FIN             reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    LBRACKET        reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    ID              reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 22 (factor -> LPAREN expression RPAREN .)
+
+
+state 44
+
+    (18) term -> term DIVIDE factor .
+
+    TIMES           reduce using rule 18 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 18 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 18 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 18 (term -> term DIVIDE factor .)
+    $end            reduce using rule 18 (term -> term DIVIDE factor .)
+    RPAREN          reduce using rule 18 (term -> term DIVIDE factor .)
+    FIN             reduce using rule 18 (term -> term DIVIDE factor .)
+    RBRACKET        reduce using rule 18 (term -> term DIVIDE factor .)
+    PARA            reduce using rule 18 (term -> term DIVIDE factor .)
+    AVANZA          reduce using rule 18 (term -> term DIVIDE factor .)
+    RETROCEDE       reduce using rule 18 (term -> term DIVIDE factor .)
+    GIRADERECHA     reduce using rule 18 (term -> term DIVIDE factor .)
+    GIRAIZQUIERDA   reduce using rule 18 (term -> term DIVIDE factor .)
+    REPITE          reduce using rule 18 (term -> term DIVIDE factor .)
+    PONPOS          reduce using rule 18 (term -> term DIVIDE factor .)
+    PONRUMBO        reduce using rule 18 (term -> term DIVIDE factor .)
+    CENTRO          reduce using rule 18 (term -> term DIVIDE factor .)
+    NUMBER          reduce using rule 18 (term -> term DIVIDE factor .)
+    ID              reduce using rule 18 (term -> term DIVIDE factor .)
+    LPAREN          reduce using rule 18 (term -> term DIVIDE factor .)
+    LBRACKET        reduce using rule 18 (term -> term DIVIDE factor .)
+
+
+state 45
+
+    (17) term -> term TIMES factor .
+
+    TIMES           reduce using rule 17 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 17 (term -> term TIMES factor .)
+    PLUS            reduce using rule 17 (term -> term TIMES factor .)
+    MINUS           reduce using rule 17 (term -> term TIMES factor .)
+    $end            reduce using rule 17 (term -> term TIMES factor .)
+    RPAREN          reduce using rule 17 (term -> term TIMES factor .)
+    FIN             reduce using rule 17 (term -> term TIMES factor .)
+    RBRACKET        reduce using rule 17 (term -> term TIMES factor .)
+    PARA            reduce using rule 17 (term -> term TIMES factor .)
+    AVANZA          reduce using rule 17 (term -> term TIMES factor .)
+    RETROCEDE       reduce using rule 17 (term -> term TIMES factor .)
+    GIRADERECHA     reduce using rule 17 (term -> term TIMES factor .)
+    GIRAIZQUIERDA   reduce using rule 17 (term -> term TIMES factor .)
+    REPITE          reduce using rule 17 (term -> term TIMES factor .)
+    PONPOS          reduce using rule 17 (term -> term TIMES factor .)
+    PONRUMBO        reduce using rule 17 (term -> term TIMES factor .)
+    CENTRO          reduce using rule 17 (term -> term TIMES factor .)
+    NUMBER          reduce using rule 17 (term -> term TIMES factor .)
+    ID              reduce using rule 17 (term -> term TIMES factor .)
+    LPAREN          reduce using rule 17 (term -> term TIMES factor .)
+    LBRACKET        reduce using rule 17 (term -> term TIMES factor .)
+
+
+state 46
+
+    (9) expression -> REPITE term LBRACKET expression . RBRACKET
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+    RBRACKET        shift and go to state 51
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 47
+
+    (10) expression -> PONPOS LBRACKET term term . RBRACKET
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+
+    RBRACKET        shift and go to state 52
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+
+
+state 48
+
+    (3) expression -> PARA ID expression FIN .
+
+    RBRACKET        reduce using rule 3 (expression -> PARA ID expression FIN .)
+    PLUS            reduce using rule 3 (expression -> PARA ID expression FIN .)
+    MINUS           reduce using rule 3 (expression -> PARA ID expression FIN .)
+    RPAREN          reduce using rule 3 (expression -> PARA ID expression FIN .)
+    $end            reduce using rule 3 (expression -> PARA ID expression FIN .)
+    FIN             reduce using rule 3 (expression -> PARA ID expression FIN .)
+
+
+state 49
+
+    (2) expression -> PARA ID DOUPOINT term . expression FIN
+    (17) term -> term . TIMES factor
+    (18) term -> term . DIVIDE factor
+    (2) expression -> . PARA ID DOUPOINT term expression FIN
+    (3) expression -> . PARA ID expression FIN
+    (4) expression -> . AVANZA DOUPOINT ID expression
+    (5) expression -> . AVANZA term expression
+    (6) expression -> . RETROCEDE term expression
+    (7) expression -> . GIRADERECHA term expression
+    (8) expression -> . GIRAIZQUIERDA term expression
+    (9) expression -> . REPITE term LBRACKET expression RBRACKET
+    (10) expression -> . PONPOS LBRACKET term term RBRACKET
+    (11) expression -> . PONRUMBO MINUS term
+    (12) expression -> . PONRUMBO term
+    (13) expression -> . CENTRO
+    (14) expression -> .
+    (15) expression -> . expression PLUS term
+    (16) expression -> . expression MINUS term
+
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 29
+    PARA            shift and go to state 8
+    AVANZA          shift and go to state 10
+    RETROCEDE       shift and go to state 4
+    GIRADERECHA     shift and go to state 11
+    GIRAIZQUIERDA   shift and go to state 5
+    REPITE          shift and go to state 1
+    PONPOS          shift and go to state 3
+    PONRUMBO        shift and go to state 9
+    CENTRO          shift and go to state 6
+    FIN             reduce using rule 14 (expression -> .)
+    PLUS            reduce using rule 14 (expression -> .)
+    MINUS           reduce using rule 14 (expression -> .)
+
+    expression                     shift and go to state 53
+
+state 50
+
+    (4) expression -> AVANZA DOUPOINT ID expression .
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    RBRACKET        reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .)
+    RPAREN          reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .)
+    $end            reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .)
+    FIN             reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .) ]
+  ! MINUS           [ reduce using rule 4 (expression -> AVANZA DOUPOINT ID expression .) ]
+
+
+state 51
+
+    (9) expression -> REPITE term LBRACKET expression RBRACKET .
+
+    RBRACKET        reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+    PLUS            reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+    MINUS           reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+    RPAREN          reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+    $end            reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+    FIN             reduce using rule 9 (expression -> REPITE term LBRACKET expression RBRACKET .)
+
+
+state 52
+
+    (10) expression -> PONPOS LBRACKET term term RBRACKET .
+
+    RBRACKET        reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+    PLUS            reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+    MINUS           reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+    RPAREN          reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+    $end            reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+    FIN             reduce using rule 10 (expression -> PONPOS LBRACKET term term RBRACKET .)
+
+
+state 53
+
+    (2) expression -> PARA ID DOUPOINT term expression . FIN
+    (15) expression -> expression . PLUS term
+    (16) expression -> expression . MINUS term
+
+    FIN             shift and go to state 54
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 54
+
+    (2) expression -> PARA ID DOUPOINT term expression FIN .
+
+    RBRACKET        reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+    PLUS            reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+    MINUS           reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+    RPAREN          reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+    $end            reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+    FIN             reduce using rule 2 (expression -> PARA ID DOUPOINT term expression FIN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 36 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 36 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 42 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 42 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 50 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 50 resolved as shift
